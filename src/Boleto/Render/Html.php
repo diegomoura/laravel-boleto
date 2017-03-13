@@ -142,8 +142,7 @@ class Html implements HtmlContract
         if (count($this->boleto) == 0) {
             throw new \Exception('Nenhum Boleto adicionado');
         }
-
-        view()->addNamespace('BoletoHtmlRender', realpath(__DIR__ . '/view/'));
+      
         return view('BoletoHtmlRender::boleto', [
             'boletos' => $this->boleto,
             'css' => $this->writeCss(),

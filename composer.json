@@ -1,5 +1,6 @@
 {
     "name": "diegomoura/laravel-boleto",
+    "minimum-stability": "dev",
     "description": "Biblioteca de boletos para o laravel",
     "keywords": [
         "diegomoura",

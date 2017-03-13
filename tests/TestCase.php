@@ -1,5 +1,5 @@
 <?php
-namespace Eduardokum\LaravelBoleto\Tests;
+namespace Diegomoura\LaravelBoleto\Tests;
 
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 

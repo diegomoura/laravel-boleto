@@ -53,7 +53,7 @@ Ou adicione manualmente ao seu composer.json:
 ### Criando o beneficiário ou pagador
 
 ```php
-$beneficiario = new \Eduardokum\LaravelBoleto\Pessoa([
+$beneficiario = new \Diegomoura\LaravelBoleto\Pessoa([
     'nome' => 'ACME',
     'endereco' => 'Rua um, 123',
     'cep' => '99999-999',
@@ -62,7 +62,7 @@ $beneficiario = new \Eduardokum\LaravelBoleto\Pessoa([
     'documento' => '99.999.999/9999-99',
 ]);
 
-$pagador = new \Eduardokum\LaravelBoleto\Pessoa([
+$pagador = new \Diegomoura\LaravelBoleto\Pessoa([
     'nome' => 'Cliente',
     'endereco' => 'Rua um, 123',
     'bairro' => 'Bairro',
@@ -110,7 +110,7 @@ $boletoArray = [
 	'especieDoc' => 'DM',
 ];
 
-$boleto = new \Eduardokum\LaravelBoleto\Boleto\Banco\Bb($boletoArray);
+$boleto = new \Diegomoura\LaravelBoleto\Boleto\Banco\Bb($boletoArray);
 ```
 
 ### Gerando o boleto
@@ -149,7 +149,7 @@ return response($boleto->renderHTML());
 
 ```php
 // Gerar em PDF
-$pdf = new Eduardokum\LaravelBoleto\Boleto\Render\Pdf();
+$pdf = new Diegomoura\LaravelBoleto\Boleto\Render\Pdf();
 
 $pdf->addBoleto($boleto);
 // Ou para adicionar um array de boletos
@@ -173,7 +173,7 @@ $pdf_inline = $pdf->gerarBoleto(Pdf::OUTPUT_STRING); // retorna o boleto em form
 $pdf->gerarBoleto(Pdf::OUTPUT_DOWNLOAD); // força o download pelo navegador.
 
 // Gerar em HTML
-$html = new Eduardokum\LaravelBoleto\Boleto\Render\Html();
+$html = new Diegomoura\LaravelBoleto\Boleto\Render\Html();
 $html->addBoleto($boleto);
 // Ou para adicionar um array de boletos
 $html->addBoletos($boletos);
@@ -204,7 +204,7 @@ $remessaArray = [
 	'beneficiario' => $beneficiario,
 ];
 
-$remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Bb($remessaArray);
+$remessa = new \Diegomoura\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Bb($remessaArray);
 
 // Adicionar um boleto.
 $remessa->addBoleto($boleto);
@@ -222,7 +222,7 @@ echo $remessa->gerar();
 ## Tratar retorno
 
 ```php
-$retorno = \Eduardokum\LaravelBoleto\Cnab\Retorno\Factory::make('full_path_arquivo_retorno');
+$retorno = \Diegomoura\LaravelBoleto\Cnab\Retorno\Factory::make('full_path_arquivo_retorno');
 $retorno->processar();
 echo $retorno->getBancoNome();
 

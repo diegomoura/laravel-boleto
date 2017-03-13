@@ -6,7 +6,7 @@
  * Time: 16:49
  */
 
-namespace Eduardokum\LaravelBoleto;
+namespace Diegomoura\LaravelBoleto;
 
 trait MagicTrait
 {

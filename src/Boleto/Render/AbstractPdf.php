@@ -1,5 +1,5 @@
 <?php
-namespace Eduardokum\LaravelBoleto\Boleto\Render;
+namespace Diegomoura\LaravelBoleto\Boleto\Render;
 
 use fpdf\FPDF;
 

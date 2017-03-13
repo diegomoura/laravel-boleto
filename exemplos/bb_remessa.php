@@ -1,6 +1,6 @@
 <?php
 require 'autoload.php';
-$beneficiario = new \Eduardokum\LaravelBoleto\Pessoa(
+$beneficiario = new \Diegomoura\LaravelBoleto\Pessoa(
     [
         'nome'      => 'ACME',
         'endereco'  => 'Rua um, 123',
@@ -11,7 +11,7 @@ $beneficiario = new \Eduardokum\LaravelBoleto\Pessoa(
     ]
 );
 
-$pagador = new \Eduardokum\LaravelBoleto\Pessoa(
+$pagador = new \Diegomoura\LaravelBoleto\Pessoa(
     [
         'nome'      => 'Cliente',
         'endereco'  => 'Rua um, 123',
@@ -23,7 +23,7 @@ $pagador = new \Eduardokum\LaravelBoleto\Pessoa(
     ]
 );
 
-$boleto = new Eduardokum\LaravelBoleto\Boleto\Banco\Bb(
+$boleto = new Diegomoura\LaravelBoleto\Boleto\Banco\Bb(
     [
         'logo'                   => realpath(__DIR__ . '/../logos/') . DIRECTORY_SEPARATOR . '001.png',
         'dataVencimento'         => new \Carbon\Carbon(),
@@ -43,7 +43,7 @@ $boleto = new Eduardokum\LaravelBoleto\Boleto\Banco\Bb(
     ]
 );
 
-$remessa = new \Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Bb(
+$remessa = new \Diegomoura\LaravelBoleto\Cnab\Remessa\Cnab400\Banco\Bb(
     [
         'agencia'      => 1111,
         'carteira'     => 11,

@@ -1,7 +1,7 @@
 <?php
-namespace Eduardokum\LaravelBoleto\Contracts\Boleto;
+namespace Diegomoura\LaravelBoleto\Contracts\Boleto;
 
-use Eduardokum\LaravelBoleto\Contracts\Pessoa as PessoaContract;
+use Diegomoura\LaravelBoleto\Contracts\Pessoa as PessoaContract;
 
 interface Boleto
 {

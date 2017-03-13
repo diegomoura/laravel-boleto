@@ -1,21 +1,21 @@
 <?php
-namespace Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400;
+namespace Diegomoura\LaravelBoleto\Cnab\Retorno\Cnab400;
 
-use Eduardokum\LaravelBoleto\Util;
-use \Eduardokum\LaravelBoleto\Cnab\Retorno\AbstractRetorno as AbstractRetornoGeneric;
-use Eduardokum\LaravelBoleto\Contracts\Cnab\Retorno\Cnab400\Header as HeaderContract;
-use Eduardokum\LaravelBoleto\Contracts\Cnab\Retorno\Cnab400\Detalhe as DetalheContract;
-use Eduardokum\LaravelBoleto\Contracts\Cnab\Retorno\Cnab400\Trailer as TrailerContract;
+use Diegomoura\LaravelBoleto\Util;
+use \Diegomoura\LaravelBoleto\Cnab\Retorno\AbstractRetorno as AbstractRetornoGeneric;
+use Diegomoura\LaravelBoleto\Contracts\Cnab\Retorno\Cnab400\Header as HeaderContract;
+use Diegomoura\LaravelBoleto\Contracts\Cnab\Retorno\Cnab400\Detalhe as DetalheContract;
+use Diegomoura\LaravelBoleto\Contracts\Cnab\Retorno\Cnab400\Trailer as TrailerContract;
 use Illuminate\Support\Collection;
 
 /**
  * Class AbstractRetorno
  *
- * @method  \Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Detalhe getDetalhe()
- * @method  \Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Header getHeader()
- * @method  \Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Trailer getTrailer()
- * @method  \Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400\Detalhe detalheAtual()
- * @package Eduardokum\LaravelBoleto\Cnab\Retorno\Cnab400
+ * @method  \Diegomoura\LaravelBoleto\Cnab\Retorno\Cnab400\Detalhe getDetalhe()
+ * @method  \Diegomoura\LaravelBoleto\Cnab\Retorno\Cnab400\Header getHeader()
+ * @method  \Diegomoura\LaravelBoleto\Cnab\Retorno\Cnab400\Trailer getTrailer()
+ * @method  \Diegomoura\LaravelBoleto\Cnab\Retorno\Cnab400\Detalhe detalheAtual()
+ * @package Diegomoura\LaravelBoleto\Cnab\Retorno\Cnab400
  */
 abstract class AbstractRetorno extends AbstractRetornoGeneric
 {

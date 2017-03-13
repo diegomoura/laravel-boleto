@@ -1,7 +1,7 @@
 <?php
-namespace Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240;
+namespace Diegomoura\LaravelBoleto\Cnab\Remessa\Cnab240;
 
-use Eduardokum\LaravelBoleto\Cnab\Remessa\AbstractRemessa as AbstractRemessaGeneric;
+use Diegomoura\LaravelBoleto\Cnab\Remessa\AbstractRemessa as AbstractRemessaGeneric;
 
 abstract class AbstractRemessa extends AbstractRemessaGeneric
 {

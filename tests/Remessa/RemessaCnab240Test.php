@@ -1,11 +1,11 @@
 <?php
 
-namespace Eduardokum\LaravelBoleto\Tests\Remessa;
+namespace Diegomoura\LaravelBoleto\Tests\Remessa;
 
-use Eduardokum\LaravelBoleto\Boleto\Banco as Boleto;
-use Eduardokum\LaravelBoleto\Cnab\Remessa\Cnab240\Banco as Remessa;
-use Eduardokum\LaravelBoleto\Pessoa;
-use Eduardokum\LaravelBoleto\Tests\TestCase;
+use Diegomoura\LaravelBoleto\Boleto\Banco as Boleto;
+use Diegomoura\LaravelBoleto\Cnab\Remessa\Cnab240\Banco as Remessa;
+use Diegomoura\LaravelBoleto\Pessoa;
+use Diegomoura\LaravelBoleto\Tests\TestCase;
 
 class RemessaCnab240Test extends TestCase
 {

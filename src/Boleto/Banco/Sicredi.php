@@ -1,9 +1,9 @@
 <?php
-namespace Eduardokum\LaravelBoleto\Boleto\Banco;
+namespace Diegomoura\LaravelBoleto\Boleto\Banco;
 
-use Eduardokum\LaravelBoleto\Boleto\AbstractBoleto;
-use Eduardokum\LaravelBoleto\Contracts\Boleto\Boleto as BoletoContract;
-use Eduardokum\LaravelBoleto\Util;
+use Diegomoura\LaravelBoleto\Boleto\AbstractBoleto;
+use Diegomoura\LaravelBoleto\Contracts\Boleto\Boleto as BoletoContract;
+use Diegomoura\LaravelBoleto\Util;
 
 class Sicredi extends AbstractBoleto implements BoletoContract
 {

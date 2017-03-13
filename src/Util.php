@@ -1,5 +1,5 @@
 <?php
-namespace Eduardokum\LaravelBoleto;
+namespace Diegomoura\LaravelBoleto;
 
 use Carbon\Carbon;
 
@@ -10,7 +10,7 @@ use Carbon\Carbon;
  * @TODO validar processar
  * @TODO validar float nos numeros
  *
- * @package Eduardokum\LaravelBoleto
+ * @package Diegomoura\LaravelBoleto
  */
 final class Util
 {

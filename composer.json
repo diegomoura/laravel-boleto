@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Eduardokum\\LaravelBoleto\\": "src"
+            "Diegomoura\\LaravelBoleto\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Eduardokum\\LaravelBoleto\\Tests\\": "tests"
+            "Diegomoura\\LaravelBoleto\\Tests\\": "tests"
         }
     }
 }

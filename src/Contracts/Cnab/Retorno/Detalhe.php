@@ -1,6 +1,6 @@
 <?php
 
-namespace Eduardokum\LaravelBoleto\Contracts\Cnab\Retorno;
+namespace Diegomoura\LaravelBoleto\Contracts\Cnab\Retorno;
 
 interface Detalhe
 {

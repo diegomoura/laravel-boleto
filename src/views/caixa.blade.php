@@ -1,4 +1,4 @@
-@extends('BoletoHtmlRender::layout')
+@extends('boleto::layout')
 @section('boleto')
     @foreach($boletos as $i => $boleto)
         @php extract($boleto); @endphp
@@ -145,6 +145,6 @@
         <br>
 
         <!-- Ficha de compensação -->
-        @include('BoletoHtmlRender::partials/ficha-compensacao')
+        @include('boleto::partials/ficha-compensacao')
     @endforeach
 @endsection

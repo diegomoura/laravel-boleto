@@ -22,11 +22,9 @@ class BoletoServiceProvider extends BaseServiceProvider {
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/views', 'BoletoHtmlRender');
-
+        $this->loadViewsFrom(__DIR__.'/../views', 'boleto');
         $this->publishes([
-            __DIR__.'/views'      => resource_path('views/vendor/BoletoHtmlRender'),
-        ]);
+            __DIR__.'/../views'      => base_path('resources/views/vendor/boleto')]);
     }
 
 

@@ -1,4 +1,4 @@
-@extends('BoletoHtmlRender::layout')
+@extends('boleto::layout')
 @section('boleto')
     @foreach($boletos as $i => $boleto)
         @php extract($boleto); @endphp
@@ -82,7 +82,7 @@
     </div>
     <div style="float: left; margin-left: 15px">
         <!-- Ficha de compensação -->
-        @include('BoletoHtmlRender::partials/ficha-compensacao')
+        @include('boleto::partials/ficha-compensacao')
     </div>
     <div style="clear: both"></div>
     <div class="linha-pontilhada">Corte na linha pontilhada</div>

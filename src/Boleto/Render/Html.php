@@ -143,7 +143,7 @@ class Html implements HtmlContract
             throw new \Exception('Nenhum Boleto adicionado');
         }
       
-        return view('BoletoHtmlRender::boleto', [
+        return view('boleto::boleto', [
             'boletos' => $this->boleto,
             'css' => $this->writeCss(),
             'imprimir_carregamento' => (bool) $this->print,

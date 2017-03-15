@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Boletos</title>
     <style type="text/css">
-        {!! $css !!}
+
     </style>
+    <link href="{{ asset('css/boleto/boleto.css') }}" rel="stylesheet">
 </head>
 <body>
 

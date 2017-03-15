@@ -1445,17 +1445,7 @@ abstract class AbstractBoleto implements BoletoContract
             [
                 'linha_digitavel'             => $this->getLinhaDigitavel(),
                 'codigo_barras'               => $this->getCodigoBarras(),
-                'beneficiario'                => [
-                    'nome' => $this->getBeneficiario()->getNome(),
-                    'endereco' => $this->getBeneficiario()->getEndereco(),
-                    'bairro' => $this->getBeneficiario()->getBairro(),
-                    'cep' => $this->getBeneficiario()->getCep(),
-                    'uf' => $this->getBeneficiario()->getUf(),
-                    'cidade' => $this->getBeneficiario()->getCidade(),
-                    'documento' => $this->getBeneficiario()->getDocumento(),
-                    'nome_documento' => $this->getBeneficiario()->getNomeDocumento(),
-                    'endereco2' => $this->getBeneficiario()->getCepCidadeUf(),
-                ],
+                'beneficiario'                => $this->getBeneficiario()->toArray(),
                 'logo_base64'                 => $this->getLogoBase64(),
                 'logo'                        => $this->getLogo(),
                 'logo_banco_base64'           => $this->getLogoBancoBase64(),
@@ -1472,31 +1462,8 @@ abstract class AbstractBoleto implements BoletoContract
                 'juros'                       => Util::nReal($this->getJuros(), 2, false),
                 'juros_apos'                  => $this->getJurosApos(),
                 'dias_protesto'               => $this->getDiasProtesto(),
-                'sacador_avalista'            =>
-                    $this->getSacadorAvalista()
-                        ? [
-                            'nome' => $this->getPagador()->getNome(),
-                            'endereco' => $this->getPagador()->getEndereco(),
-                            'bairro' => $this->getPagador()->getBairro(),
-                            'cep' => $this->getPagador()->getCep(),
-                            'uf' => $this->getPagador()->getUf(),
-                            'cidade' => $this->getPagador()->getCidade(),
-                            'documento' => $this->getPagador()->getDocumento(),
-                            'nome_documento' => $this->getPagador()->getNomeDocumento(),
-                            'endereco2' => $this->getPagador()->getCepCidadeUf(),
-                        ]
-                        : [],
-                'pagador'                     => [
-                    'nome' => $this->getPagador()->getNome(),
-                    'endereco' => $this->getPagador()->getEndereco(),
-                    'bairro' => $this->getPagador()->getBairro(),
-                    'cep' => $this->getPagador()->getCep(),
-                    'uf' => $this->getPagador()->getUf(),
-                    'cidade' => $this->getPagador()->getCidade(),
-                    'documento' => $this->getPagador()->getDocumento(),
-                    'nome_documento' => $this->getPagador()->getNomeDocumento(),
-                    'endereco2' => $this->getPagador()->getCepCidadeUf(),
-                ],
+                'sacador_avalista'            => $this->getSacadorAvalista() ? $this->getPagador()->toArray() : [],
+                'pagador'                     => $this->getPagador()->toArray(),
                 'demonstrativo'               => $this->getDescricaoDemonstrativo(),
                 'instrucoes'                  => $this->getInstrucoes(),
                 'local_pagamento'             => $this->getLocalPagamento(),
@@ -1515,5 +1482,6 @@ abstract class AbstractBoleto implements BoletoContract
                 'status'                      => $this->getStatus(),
             ], $this->variaveis_adicionais
         );
+
     }
 }

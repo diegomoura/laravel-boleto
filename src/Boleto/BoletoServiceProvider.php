@@ -24,7 +24,8 @@ class BoletoServiceProvider extends BaseServiceProvider {
     {
         $this->loadViewsFrom(__DIR__.'/../views', 'boleto');
         $this->publishes([
-            __DIR__.'/../views'      => base_path('resources/views/vendor/boleto')]);
+            __DIR__.'/../views'      => base_path('resources/views/vendor/boleto'),
+            __DIR__.'/../css'      => base_path('public/css/boleto')]);
     }
 
 

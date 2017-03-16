@@ -175,7 +175,7 @@ class Render implements RenderContract
             return $pdf->save($save_path);
         }
         elseif ($dest == self::OUTPUT_DOWNLOAD) {
-            return $pdf->download('Boleto - Grupo Lírios');
+            return $pdf->download('Boleto - Grupo Lírios.pdf');
         }
         elseif ($dest == self::OUTPUT_STRING){
             return $pdf;

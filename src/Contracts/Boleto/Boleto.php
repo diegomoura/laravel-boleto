@@ -20,20 +20,13 @@ interface Boleto
     const STATUS_BAIXA = 3;
 
     /**
-     * Render PDF.
+     * Render.
      *
      * @param bool $print
      *
      * @return mixed
      */
-    public function renderPDF($print = false);
-
-    /**
-     * Render PDF.
-     *
-     * @return mixed
-     */
-    public function renderHTML();
+    public function render($tipo = self::PDF, $print = false, $instrucoes = true, $dest = Render::OUTPUT_INLINE, $save_path = null);
 
     /**
      * Return boleto as a Array.

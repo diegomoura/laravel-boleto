@@ -82,7 +82,7 @@ body {
 }
 
 .table-boleto .logocontainer {
-    width: 257px;
+    width: 240px;
     display: inline-block
 }
 
@@ -103,7 +103,7 @@ body {
 .table-boleto .linha-digitavel {
     font: 700 15px Arial;
     display: inline-block;
-    width: 406px;
+    width: 422px;
     text-align: right
 }
 

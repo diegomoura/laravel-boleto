@@ -2,8 +2,7 @@
 namespace Diegomoura\LaravelBoleto\Boleto;
 
 use Carbon\Carbon;
-use Diegomoura\LaravelBoleto\Boleto\Render\Html;
-use Diegomoura\LaravelBoleto\Boleto\Render\Pdf;
+use Diegomoura\LaravelBoleto\Boleto\Render;
 use Diegomoura\LaravelBoleto\Contracts\Pessoa as PessoaContract;
 use Diegomoura\LaravelBoleto\Contracts\Boleto\Boleto as BoletoContract;
 use Diegomoura\LaravelBoleto\Pessoa;
@@ -16,6 +15,9 @@ use Diegomoura\LaravelBoleto\Util;
  */
 abstract class AbstractBoleto implements BoletoContract
 {
+    const PDF     = 'P';
+    const HTML    = 'H';
+
     /**
      * Campos que são necessários para o boleto
      *
@@ -242,6 +244,7 @@ abstract class AbstractBoleto implements BoletoContract
      * @var array
      */
     public $variaveis_adicionais = [];
+
     /**
      * Cache do campo livre para evitar processamento desnecessário.
      *
@@ -1151,6 +1154,22 @@ abstract class AbstractBoleto implements BoletoContract
     }
 
     /**
+     * @return array
+     */
+    public function getVariaveisAdicionais()
+    {
+        return $this->variaveis_adicionais;
+    }
+
+    /**
+     * @param array $variaveis_adicionais
+     */
+    public function setVariaveisAdicionais($variaveis_adicionais)
+    {
+        $this->variaveis_adicionais = $variaveis_adicionais;
+    }
+
+    /**
      * Retorna o logotipo em Base64, pronto para ser inserido na página
      *
      * @return string
@@ -1378,41 +1397,26 @@ abstract class AbstractBoleto implements BoletoContract
     }
 
     /**
-     * Render PDF
+     * Renderiza o(s) boleto(s) de acordo com o tipo informado
      *
+     * @param string $tipo
      * @param bool $print
      * @param bool $instrucoes
-     *
+     * @param string $dest
+     * @param null $save_path
      * @return string
-     * @throws \Exception
      */
-    public function renderPDF($print = false, $instrucoes = true)
+    public function render($tipo = self::PDF, $print = false, $instrucoes = true, $dest = Render::OUTPUT_INLINE, $save_path = null)
     {
-        $pdf = new Pdf();
-        $pdf->addBoleto($this);
-        !$print || $pdf->showPrint();
-        $instrucoes || $pdf->hideInstrucoes();
+        $render = new Render();
+        $render->addBoleto($this);
+        !$print || $render->showPrint();
+        $instrucoes || $render->hideInstrucoes();
 
-        return $pdf->gerarBoleto('S', null);
-    }
-
-    /**
-     * Render HTML
-     *
-     * @param bool $print
-     * @param bool $instrucoes
-     *
-     * @return string
-     * @throws \Throwable
-     */
-    public function renderHTML($print = false, $instrucoes = true)
-    {
-        $html = new Html();
-        $html->addBoleto($this);
-        !$print || $html->showPrint();
-        $instrucoes || $html->hideInstrucoes();
-
-        return $html->gerarBoleto();
+        if ($tipo == self::HTML){
+            return $render->gerarBoletoHtml();
+        }
+        return $render->gerarBoletoPdf($dest, $save_path);
     }
 
     /**
@@ -1482,6 +1486,5 @@ abstract class AbstractBoleto implements BoletoContract
                 'status'                      => $this->getStatus(),
             ], $this->variaveis_adicionais
         );
-
     }
 }

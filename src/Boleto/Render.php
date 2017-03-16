@@ -1,11 +1,19 @@
 <?php
-namespace Diegomoura\LaravelBoleto\Boleto\Render;
+namespace Diegomoura\LaravelBoleto\Boleto;
 
 use Diegomoura\LaravelBoleto\Contracts\Boleto\Boleto as BoletoContract;
-use \Diegomoura\LaravelBoleto\Contracts\Boleto\Render\Html as HtmlContract;
+use Diegomoura\LaravelBoleto\Contracts\Boleto\Render as RenderContract;
 
-class Html implements HtmlContract
+class Render implements RenderContract
 {
+
+    const OUTPUT_INLINE     = 'I';
+    const OUTPUT_DOWNLOAD   = 'D';
+    const OUTPUT_PATH       = 'P';
+    const OUTPUT_STRING     = 'S';
+
+    private $totalBoletos = 0;
+
     /**
      * @var BoletoContract[]
      */
@@ -124,12 +132,12 @@ class Html implements HtmlContract
     }
 
     /**
-     * função para gerar o boleto
+     * função para gerar o boleto em html
      *
      * @return string
      * @throws \Throwable'
      */
-    public function gerarBoleto()
+    public function gerarBoletoHtml()
     {
         if (count($this->boleto) == 0) {
             throw new \Exception('Nenhum Boleto adicionado');
@@ -140,5 +148,40 @@ class Html implements HtmlContract
             'imprimir_carregamento' => (bool) $this->print,
             'mostrar_instrucoes' => (bool) $this->showInstrucoes,
         ])->render();
+    }
+
+
+    /**
+     * função para gerar o boleto em pdf
+     *
+     * @param string $dest
+     * @param null $save_path
+     * @return mixed
+     * @throws \Exception
+     */
+    public function gerarBoletoPdf($dest = self::OUTPUT_INLINE, $save_path = null)
+    {
+        if (count($this->boleto) == 0) {
+            throw new \Exception('Nenhum Boleto adicionado');
+        }
+
+        $pdf = \PDF::loadView('boleto::boleto', [
+            'boletos' => $this->boleto,
+            'imprimir_carregamento' => (bool) $this->print,
+            'mostrar_instrucoes' => (bool) $this->showInstrucoes,
+        ]);
+
+        if ($dest == self::OUTPUT_PATH) {
+            return $pdf->save($save_path);
+        }
+        elseif ($dest == self::OUTPUT_DOWNLOAD) {
+            return $pdf->download('Boleto - Grupo Lírios');
+        }
+        elseif ($dest == self::OUTPUT_STRING){
+            return $pdf;
+        }
+        else{
+            return $pdf->inline('Boleto - Grupo Lírios.pdf');
+        }
     }
 }

@@ -5,7 +5,7 @@ use Diegomoura\LaravelBoleto\Boleto\AbstractBoleto;
 use Diegomoura\LaravelBoleto\Contracts\Boleto\Boleto as BoletoContract;
 use Diegomoura\LaravelBoleto\Util;
 
-class Caixa  extends AbstractBoleto implements BoletoContract
+class Safra extends AbstractBoleto implements BoletoContract
 {
     public function __construct(array $params = [])
     {

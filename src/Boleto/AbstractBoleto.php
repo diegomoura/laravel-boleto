@@ -31,7 +31,7 @@ abstract class AbstractBoleto implements BoletoContract
     ];
 
     protected $protectedFields = [
-        'nossoNumero',
+        '',
     ];
 
     /**
@@ -683,6 +683,34 @@ abstract class AbstractBoleto implements BoletoContract
     }
 
     /**
+     * Define o número  definido pelo cliente para compor o nosso número
+     *
+     * @param  int $numero
+     *
+     * @return AbstractBoleto
+     */
+    public function setCampoNossoNumero($campoNossoNumero)
+    {
+        $this->campoNossoNumero = $campoNossoNumero;
+
+        return $this;
+    }
+
+    public function setCampoLinhaDigitavel($campoLinhaDigitavel)
+    {
+        $this->campoLinhaDigitavel = $campoLinhaDigitavel;
+
+        return $this;
+    }
+
+    public function setCampoCodigoBarras($campoCodigoBarras)
+    {
+        $this->campoCodigoBarras = $campoCodigoBarras;
+
+        return $this;
+    }
+
+    /**
      * Retorna o número definido pelo cliente para compor o nosso número
      *
      * @return int
@@ -1234,16 +1262,6 @@ abstract class AbstractBoleto implements BoletoContract
     }
 
     /**
-     * Mostra exception ao erroneamente tentar setar o nosso número
-     *
-     * @throws \Exception
-     */
-    final public function setNossoNumero()
-    {
-        throw new \Exception('Não é possível definir o nosso número diretamente. Utilize o método setNumero.');
-    }
-
-    /**
      * Retorna o Nosso Número calculado.
      *
      * @return string
@@ -1372,7 +1390,15 @@ abstract class AbstractBoleto implements BoletoContract
     public function getLinhaDigitavel()
     {
         if (! empty($this->campoLinhaDigitavel)) {
-            return $this->campoLinhaDigitavel;
+
+            return substr($this->campoLinhaDigitavel,0,5) . '.' .
+                substr($this->campoLinhaDigitavel,5,5) . ' ' .
+                substr($this->campoLinhaDigitavel,10,5) . '.' .
+                substr($this->campoLinhaDigitavel,15,6) . ' ' .
+                substr($this->campoLinhaDigitavel,21,5) . '.' .
+                substr($this->campoLinhaDigitavel,26,6) . ' ' .
+                substr($this->campoLinhaDigitavel,32,1) . ' ' .
+                substr($this->campoLinhaDigitavel,33,14);
         }
 
         $codigo = $this->getCodigoBarras();

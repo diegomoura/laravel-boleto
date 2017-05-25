@@ -94,7 +94,7 @@ class Render implements RenderContract
                 $barcodes[$f] = $texto;
             }
         }
-        
+
         // Guarda inicial
         $retorno = '<div class="barcode">' .
             '<div class="black thin"></div>' .
@@ -126,9 +126,9 @@ class Render implements RenderContract
 
         // Final
         return $retorno . '<div class="black large"></div>' .
-        '<div class="white thin"></div>' .
-        '<div class="black thin"></div>' .
-        '</div>';
+            '<div class="white thin"></div>' .
+            '<div class="black thin"></div>' .
+            '</div>';
     }
 
     /**

@@ -93,6 +93,9 @@ class Caixa  extends AbstractBoleto implements BoletoContract
      */
     public function getNossoNumeroBoleto()
     {
+        if (!empty($this->campoNossoNumero)) {
+            return substr_replace($this->getNossoNumero(), '-', strlen($this->getNossoNumero())-1, -1);
+        }
         return $this->getNossoNumero() . '-' . Util::modulo11($this->getNossoNumero());
     }
 

@@ -20,7 +20,7 @@
         "itbz/fpdf": "^1.7",
         "nesbot/carbon": "1.*",
         "illuminate/support": "5.*",
-        "barryvdh/laravel-snappy": "^0.3.3"
+        "barryvdh/laravel-snappy": "^0.4.3"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.0",
